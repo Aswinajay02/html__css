@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Machine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(106, 106, 226);
+
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ATM Machine</h1>
+        <button onclick="checkBalance()">Check Balance</button>
+        <button onclick="deposit()">Deposit</button>
+        <button onclick="withdraw()">Withdraw</button>
+        <input type="number" id="amount" placeholder="Amount">
+        <button onclick="quit()">Quit</button>
+    </div>
+
+    <script>
+        let balance = 0;
+
+        function checkBalance() {
+            alert("Your balance is: $" + balance);
+        }
+
+        function deposit() {
+            let amount = parseFloat(document.getElementById("amount").value);
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid amount to deposit.");
+                return;
+            }
+            balance += amount;
+            alert("$" + amount + " deposited. Your new balance is: $" + balance);
+            document.getElementById("amount").value = "";
+        }
+
+        function withdraw() {
+            let amount = parseFloat(document.getElementById("amount").value);
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid amount to withdraw.");
+                return;
+            }
+            if (amount > balance) {
+                alert("Insufficient funds. Your balance is: $" + balance);
+                return;
+            }
+            balance -= amount;
+            alert("$" + amount + " withdrawn. Your new balance is: $" + balance);
+            document.getElementById("amount").value = "";
+        }
+
+        function quit() {
+            alert("Thank you for using our ATM. Goodbye!");
+            // Redirect to another page or perform any necessary action
+        }
+    </script>
+</body>
+</html>

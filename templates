@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Interface</title>
+</head>
+<body>
+    <h1>ATM Interface</h1>
+    <p>Your balance is: ${{ balance }}</p>
+    <form method="post">
+        <label for="choice">Choose an option:</label>
+        <select name="choice" id="choice">
+            <option value="1">Check Balance</option>
+            <option value="2">Deposit</option>
+            <option value="3">Withdraw</option>
+        </select>
+        <br>
+        <label for="amount">Amount:</label>
+        <input type="number" step="0.01" name="amount" id="amount">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <p>{{ message }}</p>
+</body>
+</html>

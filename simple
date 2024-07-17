@@ -1,0 +1,65 @@
+class Contact:
+    def __init__(self, name, phone, email):
+        self.name = name
+        self.phone = phone
+        self.email = email
+
+class ContactManager:
+    def __init__(self):
+        self.contacts = []
+
+    def add_contact(self, contact):
+        self.contacts.append(contact)
+        print(f"Contact {contact.name} added successfully.")
+
+    def view_contacts(self):
+        if not self.contacts:
+            print("No contacts found.")
+        else:
+            print("Contacts:")
+            for contact in self.contacts:
+                print(f"Name: {contact.name}, Phone: {contact.phone}, Email: {contact.email}")
+
+    def delete_contact(self, name):
+        for contact in self.contacts:
+            if contact.name.lower() == name.lower():
+                self.contacts.remove(contact)
+                print(f"Contact {name} deleted successfully.")
+                return
+        print(f"Contact {name} not found.")
+
+def main():
+    contact_manager = ContactManager()
+
+    while True:
+        print("\nContact Management System")
+        print("1. Add Contact")
+        print("2. View Contacts")
+        print("3. Delete Contact")
+        print("4. Quit")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == '1':
+            name = input("Enter name: ")
+            phone = input("Enter phone number: ")
+            email = input("Enter email: ")
+            new_contact = Contact(name, phone, email)
+            contact_manager.add_contact(new_contact)
+
+        elif choice == '2':
+            contact_manager.view_contacts()
+
+        elif choice == '3':
+            name_to_delete = input("Enter the name of the contact to delete: ")
+            contact_manager.delete_contact(name_to_delete)
+
+        elif choice == '4':
+            print("Exiting the Contact Management System. Goodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
+
+if __name__ == "__main__":
+    main()

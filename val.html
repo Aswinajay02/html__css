@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url(''); /* Replace 'your-background-image.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: #e60000;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #noButton {
+            background-color: #cc0000;
+            color: #fff;
+        }
+        #yesButton {
+            background-color: #e60000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <button id="yesButton" onclick="confirmValentine('Yes')">Yes, I will!</button>
+    <button id="noButton" onclick="rejectValentine()">No, thank you.</button>
+
+    <script>
+        let noButtonClicked = false;
+
+        function rejectValentine() {
+            if (!noButtonClicked) {
+                document.getElementById("noButton").style.marginLeft = "200px";
+                noButtonClicked = true;
+            }
+        }
+        
+
+        function confirmValentine(response) {
+            if (response === 'Yes') {
+                alert("Yay! You're my Valentine! 💖");
+            }
+        }
+    </script>
+</body>
+</html>
